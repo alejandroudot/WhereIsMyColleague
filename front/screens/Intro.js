@@ -8,7 +8,6 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 
 export default function Intro({ navigation }) {
-
   return (
     <SafeAreaView style={styles.view}>
       <View>
@@ -16,11 +15,9 @@ export default function Intro({ navigation }) {
           <Text style={styles.colleague}>Where is my colleague?</Text>
           <Image
             style={styles.img}
-            source={
-              {
-                uri: "https://upload.wikimedia.org/wikipedia/commons/5/56/Globant-LightBG-Color%403x.png",
-              }
-            }
+            source={{
+              uri: "https://upload.wikimedia.org/wikipedia/commons/5/56/Globant-LightBG-Color%403x.png",
+            }}
           />
         </View>
         <View style={styles.next}>
@@ -28,12 +25,12 @@ export default function Intro({ navigation }) {
             name="rightcircle"
             size={24}
             color="black"
-            onPress={() => navigation.navigate("home")}
+            onPress={() => navigation.navigate("login")}
           />
         </View>
       </View>
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
