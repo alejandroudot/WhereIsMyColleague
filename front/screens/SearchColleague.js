@@ -49,37 +49,13 @@ export default function Home() {
           {inputValue.length > 2 && limited === true ? (
             usersByTitle.length > 0 && inputValue.length > 2 ? (
               limitUserBy5.map((user, i) => (
-                <ListItem.Swipeable
-                  key={i}
-                  leftContent={
-                    <Button
-                      title="Info"
-                      icon={{ name: "info", color: "white" }}
-                      buttonStyle={{ minHeight: "100%" }}
-                      onPress={() => {
-                        console.log(`USUARIO`, user);
-                        dispatch(userById(user.id));
-                        return navigation.navigate("userinfo");
-                      }}
-                    />
-                  }
-                  rightContent={
-                    <Button
-                      title="Locate"
-                      icon={{ name: "search", color: "white" }}
-                      buttonStyle={{
-                        minHeight: "100%" /* , backgroundColor: "green" */,
-                      }}
-                      onPress={() => mapHandler(user.id)}
-                    />
-                  }
-                >
+                <View>
                   <ListItem.Content style={styles.listItem}>
                     <ListItem.Title>{user.firstName}</ListItem.Title>
                     <ListItem.Subtitle>{user.lastName}</ListItem.Subtitle>
                   </ListItem.Content>
                   <ListItem.Chevron />
-                </ListItem.Swipeable>
+                </View>
               ))
             ) : (
               <ListItem bottomDivider>
@@ -133,8 +109,8 @@ export default function Home() {
         </View>
         <View style={styles.button}>
           {limited === true &&
-          usersByTitle.length > 4 &&
-          inputValue.length > 2 ? (
+            usersByTitle.length > 4 &&
+            inputValue.length > 2 ? (
             <Button
               type="solid"
               color="#A1CF6B"
@@ -149,8 +125,8 @@ export default function Home() {
             ></Button>
           ) : null}
           {limited === false &&
-          usersByTitle.length > 4 &&
-          inputValue.length > 2 ? (
+            usersByTitle.length > 4 &&
+            inputValue.length > 2 ? (
             <Button
               type="solid"
               color="#A1CF6B"
