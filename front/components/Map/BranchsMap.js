@@ -57,40 +57,29 @@ export default function BranchsMap() {
       >
         {branches
           ? branches.map(
-              ({ id, latitude, longitude, country, city, image }) => (
-                <View key={id}>
-                  <Marker
-                    coordinate={{
-                      latitude,
-                      longitude,
-                    }}
-                    image={require("../../assets/Gmarker.png")}
-                    onPress={() => markerHandler(city)}
-                  ></Marker>
-                  <Circle
-                    center={{
-                      latitude,
-                      longitude,
-                    }}
-                    radius={500}
-                  ></Circle>
-                </View>
-              )
+            ({ id, latitude, longitude, country, city, image }) => (
+              <View key={id}>
+                <Marker
+                  coordinate={{
+                    latitude,
+                    longitude,
+                  }}
+                  image={require("../../assets/Gmarker.png")}
+                  onPress={() => markerHandler(city)}
+                ></Marker>
+                <Circle
+                  center={{
+                    latitude,
+                    longitude,
+                  }}
+                  radius={500}
+                ></Circle>
+              </View>
             )
+          )
           : null}
       </MapView>
 
-      <View style={styles.searchBox}>
-        <Input
-          style={styles.searchInput}
-          mx="3"
-          placeholder="Search"
-          w={{
-            base: "70%",
-            md: "25%",
-          }}
-        />
-      </View>
 
       <Animated.ScrollView
         horizontal
@@ -101,41 +90,41 @@ export default function BranchsMap() {
       >
         {citySelected
           ? citySelected.map(({ id, city, address, image, CP }) => (
-              <View key={id}>
-                {blur ? (
-                  <View
-                    style={{
-                      height: 220,
-                      width: width * 0.8,
-                      backgroundColor: "transparent",
-                      borderRadius: 50,
-                      marginBottom: 80,
-                      marginLeft: 40,
-                      position: "relative",
-                    }}
-                  >
-                    <View style={styles.countryData}>
-                      <View style={styles.box}>
-                        <Text style={{ fontWeight: "bold" }}>{city}</Text>
-                        <Text>{`${address}, ${CP}`}</Text>
-                      </View>
+            <View key={id}>
+              {blur ? (
+                <View
+                  style={{
+                    height: 220,
+                    width: width * 0.8,
+                    backgroundColor: "transparent",
+                    borderRadius: 50,
+                    marginBottom: 80,
+                    marginLeft: 40,
+                    position: "relative",
+                  }}
+                >
+                  <View style={styles.countryData}>
+                    <View style={styles.box}>
+                      <Text style={{ fontWeight: "bold" }}>{city}</Text>
+                      <Text>{`${address}, ${CP}`}</Text>
                     </View>
-                    <Image
-                      style={styles.cardImage}
-                      source={{ uri: image }}
-                      resizeMode="cover"
-                    />
-
-                    <TouchableOpacity
-                      style={styles.branchBtn}
-                      onPress={() => touchableHandler(id)}
-                    >
-                      <Text>Visit Branch</Text>
-                    </TouchableOpacity>
                   </View>
-                ) : null}
-              </View>
-            ))
+                  <Image
+                    style={styles.cardImage}
+                    source={{ uri: image }}
+                    resizeMode="cover"
+                  />
+
+                  <TouchableOpacity
+                    style={styles.branchBtn}
+                    onPress={() => touchableHandler(id)}
+                  >
+                    <Text>Visit Branch</Text>
+                  </TouchableOpacity>
+                </View>
+              ) : null}
+            </View>
+          ))
           : null}
       </Animated.ScrollView>
     </View>

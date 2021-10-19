@@ -121,30 +121,9 @@ function WorkSpaceInd() {
                       >
                         User Details
                       </Button>
-                      {userLogged.access === "admin" ? (
-                        <Button
-                          onPress={() => navigation.navigate("createWorkspace")}
-                          overflow="hidden"
-                          /* onPress={() => branchButtonHandlePress()} */
-                          variant="outline"
-                          style={styles.goToBranchButton}
-                        >
-                          Create Workspace
-                        </Button>
-                      ) : null}
                     </>
                   ) : (
                     <>
-                      {userLogged.access === "admin" ? (
-                        <Button
-                          overflow="hidden"
-                          /* onPress={() => branchButtonHandlePress()} */
-                          variant="outline"
-                          style={styles.goToBranchButton}
-                        >
-                          Create Workspace
-                        </Button>
-                      ) : null}
                     </>
                   )}
                 </HStack>
