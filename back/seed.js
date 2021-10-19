@@ -358,7 +358,7 @@ Branches.bulkCreate(Branchs).then(() => {
             access: "user",
             firstName: "Augusto",
             lastName: "Rosello",
-            email: "admin2@globant.com",
+            email: "arosello@globant.com",
             password: "1234",
             country: "Estados Unidos",
             city: "Nueva York",
